@@ -97,18 +97,24 @@ typedef enum {
     objc_setAssociatedObject(self, @selector(startMatch), startMatch, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 //成功回调
-- (block)finished {
-    return objc_getAssociatedObject(self, @selector(finished));
+- (mBlock)finishedBlock
+{
+    return objc_getAssociatedObject(self, @selector(finishedBlock));
 }
-- (void)setFinished:(block)finished {
-    objc_setAssociatedObject(self, @selector(finished), finished, OBJC_ASSOCIATION_COPY_NONATOMIC);
+
+- (void)setFinishedBlock:(mBlock)finishedBlock
+{
+    objc_setAssociatedObject(self, @selector(finishedBlock), finishedBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (mBlock)failedBlock
+{
+    return objc_getAssociatedObject(self, @selector(failedBlock));
 }
 //失败的回调
-- (block)failed {
-    return objc_getAssociatedObject(self, @selector(failed));
-}
-- (void)setFailed:(block)failed {
-    objc_setAssociatedObject(self, @selector(failed), failed, OBJC_ASSOCIATION_COPY_NONATOMIC);
+- (void)setFailedBlock:(mBlock)failedBlock
+{
+    objc_setAssociatedObject(self, @selector(failedBlock), failedBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 - (NSValue *)isMatched {

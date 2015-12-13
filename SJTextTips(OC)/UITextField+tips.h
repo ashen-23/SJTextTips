@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void(^block)(NSString *key);
+typedef void(^mBlock)(NSString *key);
 
 
 @interface UITextField (tips)<UITextFieldDelegate>
@@ -22,10 +22,10 @@ typedef void(^block)(NSString *key);
 @property(nonatomic,assign)NSNumber *startMatch;
 
 /// 匹配成功后的回调(可选)
-@property(nonatomic,copy)block finished;
+@property(nonatomic,copy)mBlock finishedBlock;
 
 /// 匹配失败后的回调(可选)
-@property(nonatomic,copy)block failed;
+@property(nonatomic,copy)mBlock failedBlock;
 
 /// 匹配结果
 @property(nonatomic,copy)NSString *result;
