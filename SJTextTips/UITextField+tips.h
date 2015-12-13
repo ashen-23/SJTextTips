@@ -27,7 +27,10 @@ typedef void(^block)(NSString *key);
 /// 匹配失败后的回调(可选)
 @property(nonatomic,copy)block failed;
 
-/// 匹配结果
+/// 匹配结果(回调中存在)
 @property(nonatomic,copy)NSString *result;
+
+/// 回车的回调
+@property(nonatomic,copy)void(^returnKey)();
 
 @end

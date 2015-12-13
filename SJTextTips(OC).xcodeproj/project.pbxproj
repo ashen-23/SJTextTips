@@ -14,7 +14,7 @@
 		46D50D0A1B993BD40007D771 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46D50D091B993BD40007D771 /* Images.xcassets */; };
 		46D50D0D1B993BD40007D771 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46D50D0B1B993BD40007D771 /* LaunchScreen.xib */; };
 		46D50D191B993BD40007D771 /* SJTextTips_OC_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D50D181B993BD40007D771 /* SJTextTips_OC_Tests.m */; };
-		46D50D241B993C380007D771 /* UITextField+tips.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D50D231B993C380007D771 /* UITextField+tips.m */; };
+		46D5149E1C1DC6CF0086F19F /* UITextField+tips.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D5149D1C1DC6CF0086F19F /* UITextField+tips.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +41,8 @@
 		46D50D121B993BD40007D771 /* SJTextTips(OC)Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SJTextTips(OC)Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46D50D171B993BD40007D771 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46D50D181B993BD40007D771 /* SJTextTips_OC_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SJTextTips_OC_Tests.m; sourceTree = "<group>"; };
-		46D50D221B993C380007D771 /* UITextField+tips.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+tips.h"; sourceTree = "<group>"; };
-		46D50D231B993C380007D771 /* UITextField+tips.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+tips.m"; sourceTree = "<group>"; };
+		46D5149C1C1DC6CF0086F19F /* UITextField+tips.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITextField+tips.h"; path = "SJTextTips/UITextField+tips.h"; sourceTree = SOURCE_ROOT; };
+		46D5149D1C1DC6CF0086F19F /* UITextField+tips.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITextField+tips.m"; path = "SJTextTips/UITextField+tips.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +126,8 @@
 		46D50D251B993CB80007D771 /* UITextField+tips */ = {
 			isa = PBXGroup;
 			children = (
-				46D50D221B993C380007D771 /* UITextField+tips.h */,
-				46D50D231B993C380007D771 /* UITextField+tips.m */,
+				46D5149C1C1DC6CF0086F19F /* UITextField+tips.h */,
+				46D5149D1C1DC6CF0086F19F /* UITextField+tips.m */,
 			);
 			name = "UITextField+tips";
 			sourceTree = "<group>";
@@ -235,7 +235,7 @@
 				46D50D051B993BD40007D771 /* ViewController.m in Sources */,
 				46D50D021B993BD40007D771 /* AppDelegate.m in Sources */,
 				46D50CFF1B993BD40007D771 /* main.m in Sources */,
-				46D50D241B993C380007D771 /* UITextField+tips.m in Sources */,
+				46D5149E1C1DC6CF0086F19F /* UITextField+tips.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +430,7 @@
 				46D50D1E1B993BD40007D771 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		46D50D1F1B993BD40007D771 /* Build configuration list for PBXNativeTarget "SJTextTips(OC)Tests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +439,7 @@
 				46D50D211B993BD40007D771 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

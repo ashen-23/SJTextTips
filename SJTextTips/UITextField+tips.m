@@ -24,6 +24,15 @@ typedef enum {
         return YES;
     }
     
+    if ([string isEqualToString:@"\n"])
+    {
+        if (self.returnKey)
+        {
+            self.returnKey();
+            return YES;
+        }
+    }
+    
     NSMutableString *text = [[NSMutableString alloc]initWithCapacity:0];
     [text appendString:textField.text];
     [text deleteCharactersInRange:range];//在选中的位置 插入string
@@ -109,6 +118,17 @@ typedef enum {
 }
 - (void)setFailed:(block)failed {
     objc_setAssociatedObject(self, @selector(failed), failed, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+// 回车的回调
+- (void (^)())returnKey
+{
+    return objc_getAssociatedObject(self, @selector(returnKey));
+}
+
+- (void)setReturnKey:(void (^)())returnKey
+{
+    objc_setAssociatedObject(self, @selector(returnKey), returnKey, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 - (NSValue *)isMatched {
