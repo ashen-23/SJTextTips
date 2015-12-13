@@ -20,7 +20,7 @@ typedef enum {
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     if ([string isEqualToString:@""]) {//删除不执行任何操作
-        [self callback:callbackFailed]; // 执行错误回调
+        [self callback:callbackFailed str:@""]; // 执行错误回调
         return YES;
     }
     
@@ -42,10 +42,10 @@ typedef enum {
             UITextPosition *end = [textField positionFromPosition:endDocument offset:0];
             UITextPosition *start = [textField positionFromPosition:end offset:-behind.length];//左－右＋
             textField.selectedTextRange = [textField textRangeFromPosition:start toPosition:end];
-            [self callback:callbackFinished]; // 回调
+            [self callback:callbackFinished str:text]; // 回调
             return NO;
         }else{
-            [self callback:callbackFailed]; // 执行回调
+            [self callback:callbackFailed str:text]; // 执行回调
             return YES;
         }
     }
@@ -53,16 +53,16 @@ typedef enum {
 }
 
 /// 执行回调方法
-- (void)callback:(callbackType)type {
+- (void)callback:(callbackType)type str:(NSString *)str{
     if (type ==callbackFinished) {
         self.isMatched = @TRUE; // 设置匹配状态
         if (self.finished) {
-            self.finished(); //执行回调
+            self.finished(str); //执行回调
         }
     }else {
         self.isMatched = @FALSE;
         if (self.failed) {
-            self.failed(); //执行回调
+            self.failed(str); //执行回调
         }
     }
 }

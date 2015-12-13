@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef  void(^block)();
+typedef void(^block)(NSString *key);
 
 
 @interface UITextField (tips)<UITextFieldDelegate>
