@@ -73,6 +73,10 @@ typedef enum {
         if (self.failed) {
             self.failed(str); //执行回调
         }
+        else
+        {
+            self.text = @""; // 清空数据
+        }
     }
 }
 
@@ -87,6 +91,23 @@ typedef enum {
     }
     self.result = nil;
     return nil;
+}
+
+// 其它代理方法
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if (self.beginEdit)
+    {
+        self.beginEdit();
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (self.endEdit)
+    {
+        self.endEdit();
+    }
 }
 
 #pragma mark- 运行时添加属性
@@ -144,4 +165,25 @@ typedef enum {
 - (void)setResult:(NSString *)result {
     objc_setAssociatedObject(self, @selector(result), result, OBJC_ASSOCIATION_ASSIGN);
 }
+
+- (void (^)())beginEdit
+{
+    return objc_getAssociatedObject(self, @selector(beginEdit));
+}
+
+- (void)setBeginEdit:(void (^)())beginEdit
+{
+    objc_setAssociatedObject(self, @selector(beginEdit), beginEdit, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (void (^)())endEdit
+{
+    return objc_getAssociatedObject(self, @selector(endEdit));
+}
+
+- (void)setEndEdit:(void (^)())endEdit
+{
+    objc_setAssociatedObject(self, @selector(endEdit), endEdit, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
 @end

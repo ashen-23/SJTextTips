@@ -33,4 +33,11 @@ typedef void(^block)(NSString *key);
 /// 回车的回调
 @property(nonatomic,copy)void(^returnKey)();
 
+/// 开始编辑的回调
+@property(nonatomic,copy)void(^beginEdit)();
+
+/// 结束编辑的回调
+@property(nonatomic,copy)void(^endEdit)();
+
+
 @end
