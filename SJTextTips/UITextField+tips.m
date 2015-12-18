@@ -70,12 +70,9 @@ typedef enum {
         }
     }else {
         self.isMatched = @FALSE;
-        if (self.failed) {
-            self.failed(str); //执行回调
-        }
-        else
+        if (self.failed)
         {
-            self.text = @""; // 清空数据
+            self.failed(str); //执行回调
         }
     }
 }
@@ -117,6 +114,8 @@ typedef enum {
     
 }
 - (void)setMatchArray:(NSArray *)matchArray {
+    self.delegate = self;
+    
     objc_setAssociatedObject(self, @selector(matchArray), matchArray, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 //开始匹配的位置
@@ -185,5 +184,7 @@ typedef enum {
 {
     objc_setAssociatedObject(self, @selector(endEdit), endEdit, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
+
+
 
 @end
